@@ -31,12 +31,7 @@ class ViewController: UIViewController {
     @IBAction func checkAnswers(_ sender: Any) {
         
         // Change amount of questions input into a string
-        guard let questionsAmountAsString = questionsAmount.text, questionsAmountAsString.count != 0 else{
-            outputTextView.text = "Please enter an integer greater than 0."
-            return
-        }
-        
-        guard let questionsAmount = Int(questionsAmountAsString) else{
+        guard let questionsAmountAsString = questionsAmount.text, questionsAmountAsString.count != 0, let questionsAmount = Int(questionsAmountAsString) else{
             outputTextView.text = "Please enter an integer greater than 0."
             return
         }
