@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     // MARK: Properties
     
     @IBOutlet weak var questionsAmount: UITextField!
@@ -27,8 +27,10 @@ class ViewController: UIViewController {
     }
     
     // MARK: ACTIONS
-
+    
     @IBAction func checkAnswers(_ sender: Any) {
+        
+        var numberOfCorrectAnswers = 0
         
         // Change amount of questions input into a string
         guard let questionsAmountAsString = questionsAmount.text, questionsAmountAsString.count != 0, let questionsAmount = Int(questionsAmountAsString) else{
@@ -46,7 +48,19 @@ class ViewController: UIViewController {
             return
         }
         
+        
+        for (position, singleCharacter) in correctAnswersAsString.enumerated() {
+            
+            let index = studentAnswersAsString.index(studentAnswersAsString.startIndex, offsetBy: position)
+            
+            if singleCharacter == studentAnswersAsString[index] {
+                numberOfCorrectAnswers += 1
+            }
+        }
+        
+        outputTextView.text = "The student answered \(numberOfCorrectAnswers ) questions(s) correctly."
     }
     
 }
+
 
