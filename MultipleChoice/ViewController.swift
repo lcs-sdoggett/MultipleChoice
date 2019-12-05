@@ -36,17 +36,17 @@ class ViewController: UIViewController {
             return
         }
         
-        guard let questionsAmount = Double(questionsAmountAsString) else{
+        guard let questionsAmount = Int(questionsAmountAsString) else{
             outputTextView.text = "Please enter an integer greater than 0."
             return
         }
         
-        guard let studentAnswersAsString = studentAnswers.text, studentAnswersAsString.count != 0 else{
+        guard let studentAnswersAsString = studentAnswers.text, studentAnswersAsString.count != 0, studentAnswersAsString.count == questionsAmount else{
             outputTextView.text = "Please make sure you input exactly \(questionsAmount) student answers."
             return
         }
         
-        guard let correctAnswersAsString = correctAnswers.text, correctAnswersAsString.count != 0 else{
+        guard let correctAnswersAsString = correctAnswers.text, correctAnswersAsString.count != 0, correctAnswersAsString.count == questionsAmount else{
             outputTextView.text = "Please make sure you enter exactly \(questionsAmount) answers for the answer key."
             return
         }
