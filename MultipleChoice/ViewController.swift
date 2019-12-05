@@ -29,6 +29,28 @@ class ViewController: UIViewController {
     // MARK: ACTIONS
 
     @IBAction func checkAnswers(_ sender: Any) {
+        
+        // Change amount of questions input into a string
+        guard let questionsAmountAsString = questionsAmount.text, questionsAmountAsString.count != 0 else{
+            outputTextView.text = "Please enter an integer greater than 0."
+            return
+        }
+        
+        guard let questionsAmount = Double(questionsAmountAsString) else{
+            outputTextView.text = "Please enter an integer greater than 0."
+            return
+        }
+        
+        guard let studentAnswersAsString = studentAnswers.text, studentAnswersAsString.count != 0 else{
+            outputTextView.text = "Please make sure you input exactly \(questionsAmount) student answers."
+            return
+        }
+        
+        guard let correctAnswersAsString = correctAnswers.text, correctAnswersAsString.count != 0 else{
+            outputTextView.text = "Please make sure you enter exactly \(questionsAmount) answers for the answer key."
+            return
+        }
+        
     }
     
 }
