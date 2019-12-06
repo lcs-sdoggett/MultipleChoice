@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var correctAnswers: UITextField!
     @IBOutlet weak var outputTextView: UITextView!
     
-    
     // MARK: Methods
     
     
@@ -43,10 +42,32 @@ class ViewController: UIViewController {
             return
         }
         
+        for character in studentAnswersAsString {
+            switch character {
+            case  "A", "B", "C", "D", "E":
+                continue
+            default:
+                outputTextView.text = "Student answers containsn invalid choices. Please ensure that only characters A, B, C, D or E are used."
+                return
+            }
+        }
+
+        
         guard let correctAnswersAsString = correctAnswers.text, correctAnswersAsString.count != 0, correctAnswersAsString.count == questionsAmount else{
             outputTextView.text = "Please make sure you enter exactly \(questionsAmount) answers for the answer key."
             return
         }
+        
+        for character in correctAnswersAsString {
+            switch character {
+            case  "A", "B", "C", "D", "E":
+                continue
+            default:
+                outputTextView.text = "Correct answers containsn invalid choices. Please ensure that only characters A, B, C, D or E are used."
+                return
+            }
+        }
+
         
         
         for (position, singleCharacter) in correctAnswersAsString.enumerated() {
