@@ -53,7 +53,7 @@ class ViewController: UIViewController {
                 continue
             default:
                 // Change output if the string contains things other then a,b,c,d or e
-                outputTextView.text = "Student answers containsn invalid choices. Please ensure that only characters A, B, C, D or E are used."
+                outputTextView.text = "Student answers contains invalid choices. Please ensure that only characters A, B, C, D or E are used."
                 return
             }
         }
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
                 continue
             default:
                 // Change output if the string contains things other then a,b,c,d or e
-                outputTextView.text = "Correct answers containsn invalid choices. Please ensure that only characters A, B, C, D or E are used."
+                outputTextView.text = "Correct answers contains invalid choices. Please ensure that only characters A, B, C, D or E are used."
                 return
             }
         }
